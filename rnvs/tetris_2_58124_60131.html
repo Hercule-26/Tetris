@@ -1,0 +1,499 @@
+<!--
+https://pandoc.org/
+pdf produit avec la commande :
++ pandoc -V papersize=a4 -V geometry=landscape --pdf-engine=pdflatex -o tetris_2_58124_60131.pdf tetris_2_58124_60131.md
+
+alternative :
++ pandoc -V papersize=a4 --pdf-engine=xelatex -o tetris_2_58124_60131.pdf tetris_2_58124_60131.md
+
+alternative :
+https://www.npmjs.com/package/md-to-pdf
++ md-to-pdf tetris_2_58124_60131.md
+
+html produit avec la commande :
++ pandoc -V papersize=a4 --pdf-engine=xelatex -o tetris_2_58124_60131.html tetris_2_58124_60131.md
+
+alternative :
+https://www.npmjs.com/package/markdown-to-html
++ markdown tetris_2_58124_60131.md > tetris_2_58124_60131.html
+-->
+<!-- # commentaires nvs : tetris : nvs_2_58124_60131 -->
+<h1 id="tetris-nvs_2_58124_60131-58124-60131">Tetris : nvs_2_58124_60131
+(58124 &amp; 60131)</h1>
+<h2 id="dépôt">dépôt</h2>
+<p><a
+href="https://git.esi-bru.be/58124/dev4_tetris_d121_b-a">https://git.esi-bru.be/58124/dev4_tetris_d121_b-a</a></p>
+<p><code>git@git.esi-bru.be:58124/dev4_tetris_d121_b-a.git</code></p>
+<h2 id="modélisation">modélisation</h2>
+<p>retours donnés lors de la défense orale par les étudiants.</p>
+<h2 id="métier-console">métier / console</h2>
+<h3 id="remise">remise</h3>
+<h4 id="gitignore-et-taille-du-dépôt">.gitignore et taille du dépôt</h4>
+<ul>
+<li><p>il y a un fichier <code>.gitignore</code>, mais pas celui
+<em>Uploaded 6/07/23, 16:33</em> dans la formation dev4 de poESI :
+ko</p></li>
+<li><p>2,43 Mo (2.553.732 octets) :</p>
+<ul>
+<li><code>.git</code> : ok</li>
+<li><code>html</code>, <code>latex</code> : ko</li>
+</ul></li>
+</ul>
+<h4 id="tag-commit">tag / commit</h4>
+<p>ok</p>
+<h4 id="retard">retard</h4>
+<p>(void)</p>
+<h4 id="autre">autre</h4>
+<p>(void)</p>
+<h3 id="documentation">documentation</h3>
+<ul>
+<li>ko :
+<ul>
+<li>pas de fichier pour <code>doxygen</code></li>
+<li>fichiers avec énumérations non documentés</li>
+</ul></li>
+<li>ok : toutes les classes, énumérations, fonctions documentées</li>
+</ul>
+<h4 id="fichier-de-configuration-uniquement">fichier de configuration
+uniquement</h4>
+<ul>
+<li>ko : dossiers <code>html</code>, <code>latex</code> dans le
+dépôt</li>
+</ul>
+<h3 id="rapport">rapport</h3>
+<ul>
+<li>ko : le contenu du rapport n’est pas ce qui est attendu : il s’agit
+uniquement des écarts entre implémentation et analyse</li>
+</ul>
+<h4 id="format-pdf">format pdf</h4>
+<p>ok</p>
+<h4 id="bogue-non-signalé">bogue non signalé</h4>
+<p>(void)</p>
+<h4 id="écart-ajout-non-signalé">écart / ajout non signalé</h4>
+<p>(void)</p>
+<h4 id="autre-1">autre</h4>
+<p>(void)</p>
+<h3 id="rapport-code">rapport / code</h3>
+<h4 id="avertissement-restant">avertissement restant</h4>
+<h5 id="gcc">gcc</h5>
+<h6 id="signalé">signalé</h6>
+<p>(void)</p>
+<h6 id="non-signalé">non signalé</h6>
+<pre><code>[2/126 1.7/sec] Building CXX object src/CMakeFiles/src.dir/Model/Board.cpp.obj
+C:/[...]/nvs_2_58124_60131/rnvs_console/src/Model/Board.cpp: In member function &#39;void model::Board::set_shape_on_board(const model::shape::Shape&amp;)&#39;:
+C:/[...]/nvs_2_58124_60131/rnvs_console/src/Model/Board.cpp:31:27: warning: comparison of integer expressions of different signedness: &#39;int&#39; and &#39;std::vector&lt;model::shape::Position&gt;::size_type&#39; {aka &#39;long long unsigned int&#39;} [-Wsign-compare]
+   31 |         for (int i = 0; i &lt; positions.size(); ++i) {
+      |                         ~~^~~~~~~~~~~~~~~~~~</code></pre>
+<pre><code>[15/126 5.4/sec] Building CXX object src/CMakeFiles/src.dir/Model/Game.cpp.obj
+C:/[...]/nvs_2_58124_60131/rnvs_console/src/Model/Game.cpp: In member function &#39;void model::Game::generateRandomBoard()&#39;:
+C:/[...]/nvs_2_58124_60131/rnvs_console/src/Model/Game.cpp:96:22: warning: comparison of integer expressions of different signedness: &#39;int&#39; and &#39;unsigned int&#39; [-Wsign-compare]
+   96 |     for(int i = 0; i &lt; maximumShapes; i++){
+      |                    ~~^~~~~~~~~~~~~~~</code></pre>
+<h5 id="cppcheck">cppcheck</h5>
+<h6 id="signalé-1">signalé</h6>
+<p>(void)</p>
+<h6 id="non-signalé-1">non signalé</h6>
+<pre><code>src\Model\Shapes\Position.h: 26:5 [src\Model\Shapes\Position.h:26]
+style : noExplicitConstructor
+    Position(int x = 0, int y = 0);
+    ^
+Class &#39;Position&#39; has a constructor with 1 argument that is not explicit.</code></pre>
+<pre><code>src\View\View.h: 47:5 [src\View\View.h:47]
+style : noExplicitConstructor
+    View(const model::TetrisInterface&amp; game);
+    ^
+Class &#39;View&#39; has a constructor with 1 argument that is not explicit.</code></pre>
+<pre><code>src\Model\TetrisInterface.h: 104:18 [src\Util\Observable.h:33] -&gt; [src\Model\TetrisInterface.h:104]
+style : missingOverride
+    virtual void notify() = 0;
+                 ^
+The function &#39;notify&#39; overrides a function in a base class but is not marked with a &#39;override&#39; specifier.</code></pre>
+<pre><code>src\Controller\KeyBoardInput.cpp: 9:42 [src\Controller\KeyBoardInput.cpp:9]
+performance : passedByValue
+int inputNumber(int min, int max, string message) {
+                                         ^
+Function parameter &#39;message&#39; should be passed by const reference.</code></pre>
+<pre><code>src\Controller\KeyBoardInput.cpp: 28:39 [src\Controller\KeyBoardInput.cpp:28]
+performance : passedByValue
+std::string choiceDefaultBoard(string msg) {
+                                      ^
+Function parameter &#39;msg&#39; should be passed by const reference.</code></pre>
+<pre><code>src\Model\Level.h: 27:5 [src\Model\Level.h:27]
+style : noExplicitConstructor
+    Level(int level = 1);
+    ^
+Class &#39;Level&#39; has a constructor with 1 argument that is not explicit.</code></pre>
+<pre><code>src\Model\Game.h: 62:5 [src\Model\Game.h:62]
+style : noExplicitConstructor
+    Game(int lvl, int row = 20, int col = 10);
+    ^
+Class &#39;Game&#39; has a constructor with 1 argument that is not explicit.</code></pre>
+<pre><code>src\Model\Board.h: 58:10 [src\Model\Board.cpp:21] -&gt; [src\Model\Board.h:58]
+style (inconclusive) : functionConst
+    bool is_cell_empty(shape::Position&amp; pos);
+         ^
+Technically the member function &#39;model::Board::is_cell_empty&#39; can be const.</code></pre>
+<pre><code>src\Model\Board.h: 65:10 [src\Model\Board.cpp:25] -&gt; [src\Model\Board.h:65]
+style (inconclusive) : functionConst
+    bool is_out_of_board(shape::Position&amp; pos);
+         ^
+Technically the member function &#39;model::Board::is_out_of_board&#39; can be const.</code></pre>
+<pre><code>src\Model\Board.h: 106:10 [src\Model\Board.cpp:80] -&gt; [src\Model\Board.h:106]
+style (inconclusive) : functionConst
+    bool is_row_full(int row);
+         ^
+Technically the member function &#39;model::Board::is_row_full&#39; can be const.</code></pre>
+<pre><code>src\Model\Board.cpp: 70:31 [src\Model\Board.h:98] -&gt; [src\Model\Board.cpp:70]
+style (inconclusive) : funcArgNamesDifferent
+    void Board::move_line(int line) {
+                              ^
+Function &#39;move_line&#39; argument 1 names different: declaration &#39;row&#39; definition &#39;line&#39;.</code></pre>
+<pre><code>src\Model\TetrisInterface.h: 73:18 [src\Util\Observable.h:18] -&gt; [src\Model\TetrisInterface.h:73]
+style : missingOverride
+    virtual void Register(util::Observer* obs) = 0;
+                 ^
+The function &#39;Register&#39; overrides a function in a base class but is not marked with a &#39;override&#39; specifier.</code></pre>
+<pre><code>src\Model\TetrisInterface.h: 79:18 [src\Util\Observable.h:25] -&gt; [src\Model\TetrisInterface.h:79]
+style : missingOverride
+    virtual void Unregister(util::Observer* obs) = 0;
+                 ^
+The function &#39;Unregister&#39; overrides a function in a base class but is not marked with a &#39;override&#39; specifier.</code></pre>
+<pre><code>src\Model\Game.cpp: 71:20 [src\Model\Game.cpp:71]
+style : constVariableReference
+    for(Position &amp; pos : positions) {
+                   ^
+Variable &#39;pos&#39; can be declared as reference to const</code></pre>
+<pre><code>src\Model\Level.cpp: 37:54 [src\Model\Level.cpp:36] -&gt; [src\Model\Level.cpp:37]
+style : duplicateExpression
+    _timetoLevel[1] = chrono::duration&lt;double&gt;(number/60);
+                                                     ^
+Same expression on both sides of &#39;/&#39;.</code></pre>
+<pre><code>src\Model\Shapes\Shape.cpp: 5:8 [src\Model\Shapes\Shape.cpp:5]
+warning : uninitMemberVar
+Shape::Shape() : rotation_state{0} { offset = Position(0, 0); }
+       ^
+Member variable &#39;Shape::id&#39; is not initialized in the constructor.</code></pre>
+<pre><code>src\Model\Shapes\Shape.cpp: 5:38 [src\Model\Shapes\Shape.cpp:5]
+performance : useInitializationList
+Shape::Shape() : rotation_state{0} { offset = Position(0, 0); }
+                                     ^
+Variable &#39;offset&#39; is assigned in constructor body. Consider performing initialization in initialization list.</code></pre>
+<pre><code>src\Model\Shapes\Shape.cpp: 33:73 [src\Model\Shapes\Shape.cpp:33]
+performance : passedByValue
+void Shape::set_cell_status(std::map&lt;int, std::vector&lt;shape::Position&gt;&gt; cell_status) {
+                                                                        ^
+Function parameter &#39;cell_status&#39; should be passed by const reference.</code></pre>
+<pre><code>src\Model\Shapes\Shape.cpp: 45:5 [src\Model\Shapes\Shape.cpp:45]
+style : useStlAlgorithm
+    for(const Position&amp; block_pos : cell_status) {
+    ^
+Consider using std::any_of algorithm instead of a raw loop.</code></pre>
+<pre><code>src\View\View.h: 25:10 [src\View\view.cpp:34] -&gt; [src\View\View.h:25]
+performance (inconclusive) : functionStatic
+    void print_next_shape(const model::shape::Shape&amp; shape);
+         ^
+Technically the member function &#39;view::View::print_next_shape&#39; can be static (but you may consider moving to unnamed namespace).</code></pre>
+<pre><code>src\View\View.h: 32:10 [src\View\view.cpp:50] -&gt; [src\View\View.h:32]
+performance (inconclusive) : functionStatic
+    void print_board(const std::vector&lt;std::vector&lt;int&gt;&gt;&amp; board, const model::shape::Shape&amp; curr_shape);
+         ^
+Technically the member function &#39;view::View::print_board&#39; can be static (but you may consider moving to unnamed namespace).</code></pre>
+<pre><code>src\View\View.h: 39:10 [src\View\view.cpp:30] -&gt; [src\View\View.h:39]
+performance (inconclusive) : functionStatic
+    void print_stat(const int&amp; score, const int&amp; level);
+         ^
+Technically the member function &#39;view::View::print_stat&#39; can be static (but you may consider moving to unnamed namespace).</code></pre>
+<pre><code>src\View\View.h: 57:10 [src\View\view.cpp:19] -&gt; [src\View\View.h:57]
+performance (inconclusive) : functionStatic
+    void gameIsFinish();
+         ^
+Technically the member function &#39;view::View::gameIsFinish&#39; can be static (but you may consider moving to unnamed namespace).</code></pre>
+<pre><code>src\Model\Game.cpp: 36:0 [src\Model\Game.cpp:36]
+style : unusedFunction
+const double Game::get_tick() const {
+^
+The function &#39;get_tick&#39; is never used.</code></pre>
+<pre><code>src\Model\Game.cpp: 187:0 [src\Model\Game.cpp:187]
+style : unusedFunction
+void Game::Unregister(Observer* obs) {
+^
+The function &#39;Unregister&#39; is never used.</code></pre>
+<h3 id="code-source">code source</h3>
+<h4 id="portabilité">portabilité</h4>
+<h5 id="casse-noms-fichiers">casse noms fichiers</h5>
+<p>ok</p>
+<h5 id="séparateur">séparateur /</h5>
+<p>ok</p>
+<h5 id="c-standard">c++ standard</h5>
+<p>ok</p>
+<h5 id="si-pas-std-portabilité">si pas std : portabilité</h5>
+<p>(void)</p>
+<h4 id="bonnes-pratiques">bonnes pratiques</h4>
+<h5 id="déclarations-anticipées-si-possible">déclarations anticipées si
+possible</h5>
+<p>ko :</p>
+<ul>
+<li>dans <code>Position.h</code>, <code>#include "../Direction.h"</code>
+inutile</li>
+<li>dans <code>Shapes.h</code>, <code>#include "Shape.h"</code>
+inutile</li>
+<li>dans <code>Board.h</code>,
+<code>#include "./Shapes/Position.h"</code> inutile</li>
+<li>dans <code>Board.h</code>, <code>#include "./Shapes/Shape.h"</code>
+inutile</li>
+<li>dans <code>Bag.h</code>, <code>#include "Shapes/Shape.h"</code>
+inutile</li>
+<li>dans <code>TetrisInterface.h</code>,
+<code>#include "./Shapes/Shape.h"</code> inutile</li>
+<li>dans <code>Observable.h</code>, <code>#include "Observer.h"</code>
+inutile</li>
+<li>dans <code>View.h</code>,
+<code>#include "../Model/TetrisInterface.h"</code> inutile</li>
+<li>dans <code>View.h</code>,
+<code>#include "../Model/Shapes/Shape.h"</code> inutile</li>
+<li>dans <code>Controller.h</code>,
+<code>#include "../Model/TetrisInterface.h"</code> inutile</li>
+<li>dans <code>Controller.h</code>,
+<code>#include "../View/View.h"</code> inutile</li>
+</ul>
+<h5 id="include-inutile-ou-dans-.h-plutôt-que-.cpp">include inutile ou
+dans .h plutôt que .cpp</h5>
+<p>ko :</p>
+<ul>
+<li>dans <code>TetrisInterface.h</code>,
+<code>#include "./Direction.h"</code> inutile</li>
+<li>dans <code>TetrisInterface.h</code>,
+<code>#include "../Util/Observer.h"</code> inutile</li>
+</ul>
+<h5 id="absence-de-using-namespace-dans-.h">absence de using namespace
+dans .h</h5>
+<p>ok</p>
+<h5 id="autre-2">autre</h5>
+<p>(void)</p>
+<h4 id="gestion-de-la-mémoire">gestion de la mémoire</h4>
+<p>ok</p>
+<h4 id="tests-unitaires">tests unitaires</h4>
+<p>(ceci n’est pas demandé)</p>
+<ul>
+<li>tests mis en oeuvre avec <code>catch2</code></li>
+</ul>
+<h4 id="classes-métier">classes métier</h4>
+<h5 id="absence-dinteraction-avec-monde-extérieur-cout-fstream">absence
+d’interaction avec monde extérieur (cout, fstream)</h5>
+<p>ok</p>
+<h5 id="plateau">plateau</h5>
+<h6 id="taille-du-plateau">taille du plateau</h6>
+<ul>
+<li>défaut : ok</li>
+<li>configurable : ok</li>
+</ul>
+<h6 id="plateau-prérempli">plateau prérempli</h6>
+<ul>
+<li>ko : option possible, mais il existe des pièces flottantes au dessus
+du vide</li>
+</ul>
+<h5 id="mouvements-des-pièces">mouvements des pièces</h5>
+<h6 id="translations-g-d-b">translations ← g, → d, ↓ b</h6>
+<p>ok</p>
+<h6 id="drop">drop</h6>
+<p>ok</p>
+<h6 id="rotations">rotations</h6>
+<p>ok</p>
+<h5 id="pièces">pièces</h5>
+<h6 id="types-de-pièces">7 types de pièces</h6>
+<p>ok</p>
+<h6 id="paquet-recréation-du-paquet-mélangé-quand-vidé">paquet +
+recréation du paquet mélangé quand vidé</h6>
+<p>ok</p>
+<h6 id="apparition-de-la-pièce-courante">apparition de la pièce
+courante</h6>
+<ul>
+<li>ko : pas au milieu si taille customisée</li>
+</ul>
+<h5 id="score">score</h5>
+<h6 id="choix-du-niveau-initial">choix du niveau initial</h6>
+<p>ok</p>
+<h6 id="changement-de-niveau-toutes-les-10-lignes">changement de niveau
+toutes les 10 lignes</h6>
+<p>ok</p>
+<h6 id="effacement-des-lignes">effacement des lignes</h6>
+<p>ok</p>
+<h6 id="calcul-du-score">calcul du score</h6>
+<ul>
+<li>ok, drop compris</li>
+</ul>
+<h5 id="fin-de-partie">fin de partie</h5>
+<h6 id="quand-joueur-perd">quand joueur perd</h6>
+<p>ok</p>
+<h6 id="quand-score-atteint">quand score atteint</h6>
+<ul>
+<li>ko : pas implémenté</li>
+</ul>
+<h6 id="quand-nombre-de-lignes-effectuées">quand nombre de lignes
+effectuées</h6>
+<ul>
+<li>ko : pas implémenté</li>
+</ul>
+<h6 id="quand-temps-écoulé">quand temps écoulé</h6>
+<ul>
+<li>ko : pas implémenté</li>
+</ul>
+<h6 id="détection-effective-de-la-fin">détection effective de la
+fin</h6>
+<ul>
+<li>ko : détectée par le contrôleur</li>
+</ul>
+<h4 id="méthodes">méthodes</h4>
+<h5 id="complètes-1-méthode-1-action-de-jeu">complètes : 1 méthode / 1
+action de jeu</h5>
+<p>ko :</p>
+<ul>
+<li>la détection de fin n’est pas automatique, c’est le contrôleur qui
+s’en occupe dans <code>void Controller::start()</code></li>
+</ul>
+<h5
+id="impossibilité-de-tricher-mettre-le-jeu-dans-un-état-non-valide-bibliothèque">impossibilité
+de tricher / mettre le jeu dans un état non valide (bibliothèque)</h5>
+<p>ko :</p>
+<ul>
+<li><code>TetrisInterface::setShapeOnBoard(int drop_value = 0)</code>
+est public : possibilité de modifier le plateau sans vérification des
+règles</li>
+<li><code>TetrisInterface::set_score(int score)</code> est public :
+possibilité de modifier le plateau sans vérification des règles</li>
+<li><code>TetrisInterface::next_level()</code> est public : possibilité
+de modifier le plateau sans vérification des règles</li>
+<li><code>TetrisInterface::next_shape()</code> est public : possibilité
+de modifier le plateau sans vérification des règles</li>
+</ul>
+<p>pour régler ces problèmes : déclarer ces méthodes
+<code>private</code></p>
+<h4 id="mvc-observer">mvc &amp; observer</h4>
+<ul>
+<li><p>ko :</p>
+<ul>
+<li>les méthodes d’<code>Observable</code> sont virtuelles pures : pq
+?</li>
+<li>comme la détection de fin n’est pas réalisée automatiquement par les
+méthodes métier, la vue ne s’occupe pas de l’affichage de fin de partie
+dans la méthode <code>update()</code>, mais c’est le contrôleur qui
+déclenche <code>void View::gameIsFinish()</code></li>
+</ul></li>
+</ul>
+<h4 id="autre-3">autre</h4>
+<p>(void)</p>
+<h3 id="exécutable">exécutable</h3>
+<h4 id="fiabilisation-lectures-clavier">fiabilisation lectures
+clavier</h4>
+<p>ok</p>
+<h4 id="tour-par-tour">tour par tour</h4>
+<ul>
+<li>ok, sauf si mouvement vers le bas : dans ce cas, pas de chute</li>
+</ul>
+<h4 id="convivialité">convivialité</h4>
+<p>ok</p>
+<h4 id="affichages">affichages</h4>
+<ul>
+<li>affichage du plateau : ok</li>
+<li>affichage du score : ok</li>
+<li>affichage du niveau : ok</li>
+<li>affichage du nombre de lignes effacées : (void)</li>
+<li>affichage de la brique suivante : ok</li>
+</ul>
+<h4 id="autre-4">autre</h4>
+<p>(void)</p>
+<h2 id="gui">gui</h2>
+<h3 id="remise-1">remise</h3>
+<h4 id="gitignore-et-taille-du-dépôt-1">.gitignore et taille du
+dépôt</h4>
+<ul>
+<li><p><code>.gitignore</code> : ok</p></li>
+<li><p>taille : 72,8 Mo (76.345.029 octets) :</p>
+<ul>
+<li><code>.git</code> : 61,3 Mo (64.331.168 octets)</li>
+<li>commits : 130</li>
+</ul></li>
+</ul>
+<h4 id="tag-commit-1">tag / commit</h4>
+<ul>
+<li>ko : <code>doxyfile</code> ajouté après tag <code>gui</code></li>
+</ul>
+<h4 id="retard-1">retard</h4>
+<p>(void)</p>
+<h4 id="autre-5">autre</h4>
+<p>(void)</p>
+<h3 id="documentation-1">documentation</h3>
+<ul>
+<li><p>ok : classe graphique bien documentée</p></li>
+<li><p>ko :</p>
+<ul>
+<li>chemin absolu pour <code>Source</code> :
+<code>C:/Users/Berin/OneDrive/Bureau/dev4_tetris_d121_b-a/DEV4_TETRIS_D121_58124_60131</code></li>
+<li>chemin absolu pour <code>Destination</code> :
+<code>C:/Users/Berin/OneDrive/Bureau/dev4_tetris_d121_b-a</code></li>
+</ul></li>
+</ul>
+<h4 id="fichier-de-configuration-uniquement-1">fichier de configuration
+uniquement</h4>
+<p>ok</p>
+<h3 id="rapport-1">rapport</h3>
+<h4 id="format-pdf-1">format pdf</h4>
+<p>ok</p>
+<h4 id="bogue-non-signalé-1">bogue non signalé</h4>
+<p>(void)</p>
+<h4 id="écart-ajout-non-signalé-1">écart / ajout non signalé</h4>
+<p>(void)</p>
+<h4 id="autre-6">autre</h4>
+<p>(void)</p>
+<h3 id="code-source-1">code source</h3>
+<h4 id="gestion-de-la-mémoire-1">gestion de la mémoire</h4>
+<p>ko :</p>
+<ul>
+<li><code>new QTimer</code>, sans <code>parent</code> ni
+<code>delete</code></li>
+<li><code>new QMovie</code>, sans <code>parent</code> ni
+<code>delete</code></li>
+</ul>
+<h4 id="métier-chute-de-la-pièce-active">métier : chute de la pièce
+active</h4>
+<h5 id="pseudo-temps-réel">(pseudo-)temps réel</h5>
+<ul>
+<li><p>ok : avec <code>QTimer</code></p></li>
+<li><p>ko : déplacement vers le bas intempestif : vestige de
+l’application console où chaque mouvement est suivi d’un déplacement
+vers le bas : ici il faut retirer ce déplacement</p></li>
+</ul>
+<h5 id="accélération">accélération</h5>
+<ul>
+<li>ok : intervalles comme dans table 1 de l’énoncé</li>
+</ul>
+<h4 id="contrôleur">contrôleur</h4>
+<h5 id="menu-de-configuration">menu de configuration</h5>
+<p>ok</p>
+<h5 id="respect-des-règles">respect des règles</h5>
+<p>ok</p>
+<h5 id="convivialité-1">convivialité</h5>
+<ul>
+<li>ok : contrôle au clavier bien réactif</li>
+</ul>
+<h4 id="vue">vue</h4>
+<h5 id="design-pattern-observer">design pattern observer</h5>
+<ul>
+<li>presque ok : la fin de partie n’est pas gérée par la partie
+observateur <code>void MainWindow::update()</code> mais par le
+contrôleur et <code>void MainWindow::auto_increment()</code> qui est
+invoqué à chaque <em>tic</em> du <code>QTimer</code></li>
+</ul>
+<h5 id="convivialité-2">convivialité</h5>
+<ul>
+<li><p>ok :</p>
+<ul>
+<li>il y a un texte d’aide, un <em>gif</em> animé</li>
+<li>affichage du niveau, du score et de la brique suivante, pas du
+nombre de lignes effacées</li>
+</ul></li>
+</ul>
+<h4 id="autre-7">autre</h4>
+<p>(void)</p>
+<h2 id="examen">examen</h2>
+<p>retours donnés aux étudiants lors de l’examen oral.</p>

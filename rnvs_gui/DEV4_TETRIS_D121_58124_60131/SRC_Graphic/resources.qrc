@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/menumusic">
+        <file>Resources/images/bg1.gif</file>
+        <file>Resources/images/bg2.gif</file>
+        <file>Resources/sounds/Electric Pulse (1).mp3</file>
+        <file>Resources/sounds/Electric Pulse.mp3</file>
+        <file>Resources/images/blue.png</file>
+        <file>Resources/images/cyan.png</file>
+        <file>Resources/images/green.png</file>
+        <file>Resources/images/purple.png</file>
+        <file>Resources/images/red.png</file>
+        <file>Resources/images/yellow.png</file>
+        <file>Resources/images/orange.png</file>
+        <file>Resources/images/Logo.ico</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,155 @@
+src\Model\Shapes\Position.h: 26:5 [src\Model\Shapes\Position.h:26]
+style : noExplicitConstructor
+    Position(int x = 0, int y = 0);
+    ^
+Class 'Position' has a constructor with 1 argument that is not explicit.
+
+src\View\View.h: 47:5 [src\View\View.h:47]
+style : noExplicitConstructor
+    View(const model::TetrisInterface& game);
+    ^
+Class 'View' has a constructor with 1 argument that is not explicit.
+
+src\Model\TetrisInterface.h: 104:18 [src\Util\Observable.h:33] -> [src\Model\TetrisInterface.h:104]
+style : missingOverride
+    virtual void notify() = 0;
+                 ^
+The function 'notify' overrides a function in a base class but is not marked with a 'override' specifier.
+
+src\Controller\KeyBoardInput.cpp: 9:42 [src\Controller\KeyBoardInput.cpp:9]
+performance : passedByValue
+int inputNumber(int min, int max, string message) {
+                                         ^
+Function parameter 'message' should be passed by const reference.
+
+src\Controller\KeyBoardInput.cpp: 28:39 [src\Controller\KeyBoardInput.cpp:28]
+performance : passedByValue
+std::string choiceDefaultBoard(string msg) {
+                                      ^
+Function parameter 'msg' should be passed by const reference.
+
+src\Model\Level.h: 27:5 [src\Model\Level.h:27]
+style : noExplicitConstructor
+    Level(int level = 1);
+    ^
+Class 'Level' has a constructor with 1 argument that is not explicit.
+
+src\Model\Game.h: 62:5 [src\Model\Game.h:62]
+style : noExplicitConstructor
+    Game(int lvl, int row = 20, int col = 10);
+    ^
+Class 'Game' has a constructor with 1 argument that is not explicit.
+
+src\Model\Board.h: 58:10 [src\Model\Board.cpp:21] -> [src\Model\Board.h:58]
+style (inconclusive) : functionConst
+    bool is_cell_empty(shape::Position& pos);
+         ^
+Technically the member function 'model::Board::is_cell_empty' can be const.
+
+src\Model\Board.h: 65:10 [src\Model\Board.cpp:25] -> [src\Model\Board.h:65]
+style (inconclusive) : functionConst
+    bool is_out_of_board(shape::Position& pos);
+         ^
+Technically the member function 'model::Board::is_out_of_board' can be const.
+
+src\Model\Board.h: 106:10 [src\Model\Board.cpp:80] -> [src\Model\Board.h:106]
+style (inconclusive) : functionConst
+    bool is_row_full(int row);
+         ^
+Technically the member function 'model::Board::is_row_full' can be const.
+
+src\Model\Board.cpp: 70:31 [src\Model\Board.h:98] -> [src\Model\Board.cpp:70]
+style (inconclusive) : funcArgNamesDifferent
+    void Board::move_line(int line) {
+                              ^
+Function 'move_line' argument 1 names different: declaration 'row' definition 'line'.
+
+src\Model\TetrisInterface.h: 73:18 [src\Util\Observable.h:18] -> [src\Model\TetrisInterface.h:73]
+style : missingOverride
+    virtual void Register(util::Observer* obs) = 0;
+                 ^
+The function 'Register' overrides a function in a base class but is not marked with a 'override' specifier.
+
+src\Model\TetrisInterface.h: 79:18 [src\Util\Observable.h:25] -> [src\Model\TetrisInterface.h:79]
+style : missingOverride
+    virtual void Unregister(util::Observer* obs) = 0;
+                 ^
+The function 'Unregister' overrides a function in a base class but is not marked with a 'override' specifier.
+
+src\Model\Game.cpp: 71:20 [src\Model\Game.cpp:71]
+style : constVariableReference
+    for(Position & pos : positions) {
+                   ^
+Variable 'pos' can be declared as reference to const
+
+src\Model\Level.cpp: 37:54 [src\Model\Level.cpp:36] -> [src\Model\Level.cpp:37]
+style : duplicateExpression
+    _timetoLevel[1] = chrono::duration<double>(number/60);
+                                                     ^
+Same expression on both sides of '/'.
+
+src\Model\Shapes\Shape.cpp: 5:8 [src\Model\Shapes\Shape.cpp:5]
+warning : uninitMemberVar
+Shape::Shape() : rotation_state{0} { offset = Position(0, 0); }
+       ^
+Member variable 'Shape::id' is not initialized in the constructor.
+
+src\Model\Shapes\Shape.cpp: 5:38 [src\Model\Shapes\Shape.cpp:5]
+performance : useInitializationList
+Shape::Shape() : rotation_state{0} { offset = Position(0, 0); }
+                                     ^
+Variable 'offset' is assigned in constructor body. Consider performing initialization in initialization list.
+
+src\Model\Shapes\Shape.cpp: 33:73 [src\Model\Shapes\Shape.cpp:33]
+performance : passedByValue
+void Shape::set_cell_status(std::map<int, std::vector<shape::Position>> cell_status) {
+                                                                        ^
+Function parameter 'cell_status' should be passed by const reference.
+
+src\Model\Shapes\Shape.cpp: 45:5 [src\Model\Shapes\Shape.cpp:45]
+style : useStlAlgorithm
+    for(const Position& block_pos : cell_status) {
+    ^
+Consider using std::any_of algorithm instead of a raw loop.
+
+src\View\View.h: 25:10 [src\View\view.cpp:34] -> [src\View\View.h:25]
+performance (inconclusive) : functionStatic
+    void print_next_shape(const model::shape::Shape& shape);
+         ^
+Technically the member function 'view::View::print_next_shape' can be static (but you may consider moving to unnamed namespace).
+
+src\View\View.h: 32:10 [src\View\view.cpp:50] -> [src\View\View.h:32]
+performance (inconclusive) : functionStatic
+    void print_board(const std::vector<std::vector<int>>& board, const model::shape::Shape& curr_shape);
+         ^
+Technically the member function 'view::View::print_board' can be static (but you may consider moving to unnamed namespace).
+
+src\View\View.h: 39:10 [src\View\view.cpp:30] -> [src\View\View.h:39]
+performance (inconclusive) : functionStatic
+    void print_stat(const int& score, const int& level);
+         ^
+Technically the member function 'view::View::print_stat' can be static (but you may consider moving to unnamed namespace).
+
+src\View\View.h: 57:10 [src\View\view.cpp:19] -> [src\View\View.h:57]
+performance (inconclusive) : functionStatic
+    void gameIsFinish();
+         ^
+Technically the member function 'view::View::gameIsFinish' can be static (but you may consider moving to unnamed namespace).
+
+src\Model\Game.cpp: 36:0 [src\Model\Game.cpp:36]
+style : unusedFunction
+const double Game::get_tick() const {
+^
+The function 'get_tick' is never used.
+
+src\Model\Game.cpp: 187:0 [src\Model\Game.cpp:187]
+style : unusedFunction
+void Game::Unregister(Observer* obs) {
+^
+The function 'Unregister' is never used.
+
+nofile: 0:0 
+information : checkersReport
+
+Active checkers: 178/802 (use --checkers-report=<filename> to see details)
+
